@@ -49,6 +49,9 @@ a{
     margin: 30px 20px;
     padding: 5px;
 }
+.menu{
+    display: block;
+}
 .menu div {
     display: inline-block;
     margin: 0 15px;
@@ -58,6 +61,9 @@ a{
     font-weight: 300;
     line-height: 50px;
     color: white;
+}
+.nav .navbar button{
+    display: none;
 }
 .overlay{
     width: 100%;
@@ -538,16 +544,65 @@ hr{
         width: inherit;
     }
 }
-
-@media only screen and (max-width:704px){
-    
-    .intro{
-   margin-top: 50px; 
-    margin-left: 12px;
-    float: left;
-        font-size: 12px;
+.sideBar{
+    display: none;
 }
+@media only screen and (max-width:992px){
     
+    .navbar{
+        margin: 0 ;
+    }
+    .nav{
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .navbar .logo{
+        margin:0 20px;
+    }
+    aside button{
+        display: block;
+        position: fixed;
+        right: 0;
+        top:0;
+        margin: 10px;
+        background-color: white;
+        outline: none;
+        border: none;
+        border-radius: 0.1em;
+    }
+    aside button i{
+        color: brown;
+        padding: 6px 10px;
+        font-size: 20px;
+    }
+    .sideBar{
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-color: brown;
+        width: 50%;
+        height: 100%;
+    }
+    .display{
+        display: block;
+    }
+    .sideBar div{
+        margin: 20px auto;
+        padding: 10px;
+        border-bottom: 0.6px solid grey;
+    }
+    .sideBar div a{
+        color: white;
+        
+    }
+    .menu  {
+        display:none;
+    }
+}
+@media only screen and (max-width:704px){
     
     .left{
       width: 100%;
@@ -576,10 +631,10 @@ hr{
     
 }
 
-@media only screen and (max-width:335px){
+@media only screen and (max-width:361px){
     
     .intro{
-   margin-top:0px; 
+   margin-top:70%; 
     margin-left: 12px;
     float: left;
         font-size: 12px;
