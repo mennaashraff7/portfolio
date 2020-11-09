@@ -41,6 +41,15 @@ a{
     display: flex;
     justify-content: center;
 } 
+ .nav{
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+        z-index: 1;
+    }
 .navbar{
     
     display: flex;
@@ -115,11 +124,12 @@ SPAN{
 }
 .menu div a{
     padding-bottom: 5px;
+    font-weight: bold;
     
 }
 .menu div a:hover{
     transition: .8s;
-    color: brown;
+    color: brown !important;
     border-bottom:50px;
     animation: line .1s linear;
     border-bottom:solid brown;
@@ -547,30 +557,29 @@ hr{
 .sideBar{
     display: none;
 }
+aside button{
+    display: none;
+}
 @media only screen and (max-width:992px){
     
     .navbar{
         margin: 0 ;
     }
-    .nav{
-        
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .navbar .logo{
+     .navbar .logo{
         margin:0 20px;
     }
+  
     aside button{
         display: block;
         position: fixed;
         right: 0;
         top:0;
-        margin: 10px;
+        margin:25px 20px; 
         background-color: white;
         outline: none;
         border: none;
         border-radius: 0.1em;
+        z-index: 3;
     }
     aside button i{
         color: brown;
@@ -585,12 +594,13 @@ hr{
         background-color: brown;
         width: 50%;
         height: 100%;
+        z-index: 2;
     }
     .display{
         display: block;
     }
     .sideBar div{
-        margin: 20px auto;
+        margin: 30px auto;
         padding: 10px;
         border-bottom: 0.6px solid grey;
     }
