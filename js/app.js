@@ -10,13 +10,16 @@ const menuBtn = document.querySelector(`aside button`);
 const nav = document.querySelector(`.nav`);
 const logo = document.querySelector(`.logo`);
 const content = document.querySelector(`.content`);
-const menuElements = document.querySelectorAll(`.menu ul a`);
+const menuElements = document.querySelectorAll(`.menu ul`);
 const contact = document.querySelector(`.footer`);
 
 /***********looping over navbar links*************/
-for (const link of menuElements) {
+window.onload = function (){
+    const a = document.querySelectorAll(`.menu ul a`);
+for (const link of a) {
   link.addEventListener("click", clickHandler);
 }
+
 /*********** event for scroll to section on click *************/
 function clickHandler(e) {
   e.preventDefault();
@@ -28,8 +31,16 @@ function clickHandler(e) {
     behavior: "smooth"
   });
 }
+
+}
 /*********** function to handle smooth content sliding **********/
 function onScroll(){
+    const navsec = document.getElementById('nav');
+    const about = document.getElementById('about');
+    const skills = document.getElementById('skills');
+    const portfolio = document.getElementById('portfolio');
+    const contact = document.getElementById('contact');
+    let menuElements = document.querySelectorAll(`.menu ul a`);
    var aboutUsPosition = aboutUs.getBoundingClientRect().top;
    var skillsPosition = skills.getBoundingClientRect().top;
    var screen = window.innerHeight/2;
@@ -44,10 +55,11 @@ function onScroll(){
                   menuElement.classList.remove("active_state");
               }
         }
-        aboutUs.classList.add("active");
+        about.classList.add("active");
         skills.classList.remove("active");
         portfolio.classList.remove("active");
         contact.classList.remove("active");
+        navsec.classList.remove('active');
        }
     if(skillsPosition < screen){
         skillsAppear();
@@ -62,6 +74,7 @@ function onScroll(){
         aboutUs.classList.remove("active");
         portfolio.classList.remove("active");
         contact.classList.remove("active");
+        navsec.classList.remove('active');
        }
     if(portfolioPosition < screen){
         portfolioAppear();
@@ -76,6 +89,7 @@ function onScroll(){
         aboutUs.classList.remove("active");
         skills.classList.remove("active");
         contact.classList.remove("active");
+        navsec.classList.remove('active');
     }
     if(contactPosition < screen*2){
         for(menuElement of menuElements){
@@ -89,6 +103,7 @@ function onScroll(){
         skills.classList.remove("active");
         portfolio.classList.remove("active");
         aboutUs.classList.remove("active");
+        navsec.classList.remove('active');
     }
 }
 /*********** function to make about us section appear  **********/
@@ -110,6 +125,9 @@ function showMenu(){
 }
 /*********** function to handle mobile navbar  **********/
 function changeNavColor(){
+    const about = document.getElementById('about');
+    let menuElements = document.querySelectorAll(`.menu ul a`);
+    const navsec = document.getElementById('nav');
     nav.style.background = "white";
     nav.style.transition = "0.9s";
     nav.style.boxShadow=" 0px 0px 10px 0 grey";
@@ -132,10 +150,40 @@ function changeNavColor(){
                   menuElement.classList.remove("active_state");
               }
         }
+        navsec.classList.add('active');
+        about.classList.remove('active');
 }
 }
 /***** function to change colors of navbar on scrolling  *******/
-
+/**create menu**/
+function createMenu(){
+    for(const element of menuElements){
+    let li1 = document.createElement('li');
+    let a1 = document.createElement('a');
+        if(element.classList.contains('home')){
+    a1.classList.add('active_state');
+    a1.setAttribute("href","#home");
+    a1.textContent = "home";
+    }else if(element.classList.contains('about')){
+        a1.classList.add('about');
+        a1.setAttribute("href","#about");
+        a1.textContent = "about";
+             }else if(element.classList.contains('skills')){
+        a1.setAttribute("href","#skills");
+                 a1.textContent = "skills";
+             }else if(element.classList.contains('portfolio')){
+        a1.setAttribute("href","#portfolio");
+                 a1.textContent = "portfolio";
+             }else if(element.classList.contains('contact')){
+        a1.setAttribute("href","#contact");
+                 a1.textContent = "contact";
+             }
+          element.appendChild(li1);
+          li1.appendChild(a1);
+    
+    }
+}
+createMenu();
 /***** event listener  *******/
 menuBtn.addEventListener('click',showMenu);
 window.addEventListener('scroll', onScroll);
