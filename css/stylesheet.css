@@ -61,18 +61,23 @@ a{
 .menu{
     display: block;
 }
-.menu div {
+.menu ul {
     display: inline-block;
     margin: 0 15px;
    
 }
-.menu div a{
+.menu ul a{
     font-weight: 300;
     line-height: 50px;
     color: white;
 }
 .nav .navbar button{
     display: none;
+}
+.active_state{
+    color: brown !important;
+    border-bottom:50px;
+    border-bottom:solid brown;
 }
 .overlay{
     width: 100%;
@@ -120,12 +125,12 @@ SPAN{
     background-color: white;
     color: #001433;
 }
-.menu div a{
+.menu ul a{
     padding-bottom: 5px;
     font-weight: bold;
     
 }
-.menu div a:hover{
+.menu ul a:hover{
     transition: .8s;
     color: brown !important;
     border-bottom:50px;
